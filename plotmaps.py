@@ -34,11 +34,13 @@ def plotmapfile(file,save=True):
       
 import os
 
-dirs = ('1975','1980','1985','1990','1995','2000','2005','2010','2015','2020','2025')
+dirs = ('2015','2020','2025','2030')
 
 for dir in dirs:
     for directory, dirnames, fileList in os.walk(dir):
-        for f in fileList:   
+        for f in fileList: 
+            if not f.endswith('.AVG'):
+                continue  
             file = directory+'/'+f
             print (file)
             plotmapfile(file)
