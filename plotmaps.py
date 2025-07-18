@@ -33,14 +33,14 @@ def plotmapfile(file,save=True):
     plt.close()  
       
 import os
+plotmapfile('2030/AVKP7T12.AVG',save=True)
+# dirs = ('2000','2030')
 
-dirs = ('2015','2020','2025','2030')
-
-for dir in dirs:
-    for directory, dirnames, fileList in os.walk(dir):
-        for f in fileList: 
-            if not f.endswith('.AVG'):
-                continue  
-            file = directory+'/'+f
-            print (file)
-            plotmapfile(file)
+# for dir in dirs:
+#     for directory, dirnames, fileList in os.walk(dir):
+#         for f in fileList: 
+#             if not f.endswith('.AVG'):
+#                 continue  
+#             file = directory+'/'+f
+#             print (file)
+#             plotmapfile(file)

@@ -3,10 +3,10 @@ c     program to convert the magcos out file to the AVG file required by MSM
 c     and add the L parameter for each grid position
 c
 c     compilation:
-c       $ gfortran premap.for -o premap -L../lib -loneradesp_linux_x86_64 -std=legacy -no-pie -fno-automatic -O3
+c       $ gfortran premap.for -o premap -L../IRBEM -lirbem -std=legacy -no-pie -fno-automatic -O3
 c
 c       Note:   the oneradesp lib is the IRBEM library build from https://github.com/drflei/IRBEM
-c               it has the latest IGRF13 and works up year 2025 and the Boberg extension to TS89 model for Kp > 6.
+c               it has the latest IGRF14 and works up year 2030 and the Boberg extension to TS89 model for Kp > 6.
 C........+.........+.........+.........+.........+.........+.........+..
 c
       IMPLICIT INTEGER (I-N)
