@@ -4,9 +4,9 @@ Pre-calculated rigidity cut-off maps for MSM and PyMSM
 Example of Global Cutoff at 450km Altitude, for Kp7 at 2030.0, UT12
 ![Example of Global Cutoff at 450km Altitude ](2030_AVKP7T12.png)
 
-They are generated using the [MAGNETOCOSMICS](https://essr.esa.int/project/cosmics-charged-particles-in-planetary-environments) with IGRF14 and the TS89c with Boberg extension. The Kp > 5 and Dst relationship is 
-* Kp = 6: kp5 with Dst = -150 nT
-* Kp = 7: kp5 with Dst = -200 nT
+They are generated using the [MAGNETOCOSMICS](https://essr.esa.int/project/cosmics-charged-particles-in-planetary-environments) with IGRF14 and the TS89c with updated Boberg extension (Nick L) . The Kp > 5 and Dst relationship is that of [Smart-Shea (2023)](https://doi.org/10.1016/j.asr.2023.03.012)  
+* Kp = 6: kp5 with Dst = -82 nT
+* Kp = 7: kp5 with Dst = -100 nT
 * .. Kp+1 -> Dst -50 nT step size ..
 * ...
 
@@ -14,8 +14,8 @@ They are generated using the [MAGNETOCOSMICS](https://essr.esa.int/project/cosmi
 
 - [PyMSM](https://github.com/drflei/PyMSM)
 - [MSM](https://spitfire.estec.esa.int/trac/ESHIEM/browser/msm)
-- NoM
-- IRENE
+- [NoM](https://nom.esa.int)
+- [IRENE](https://www.vdl.afrl.af.mil/programs/ae9ap9/)
 - [MAIRE & MAIRE+](http://maire.uk/maire/)
 
 ## File descriptions

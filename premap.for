@@ -3,10 +3,10 @@ c     program to convert the magcos out file to the AVG file required by MSM
 c     and add the L parameter for each grid position
 c
 c     compilation:
-c       $ gfortran premap.for -o premap -L../IRBEM -lirbem -std=legacy -no-pie -fno-automatic -O3
+c       $ gfortran premap.for -o premap -L../IRBEM/bin -lirbem -std=legacy -no-pie -fno-automatic -O3
 c
-c       Note:   the oneradesp lib is the IRBEM library build from https://github.com/drflei/IRBEM
-c               it has the latest IGRF14 and works up year 2030 and the Boberg extension to TS89 model for Kp > 6.
+c       Note:   the irbem lib is the IRBEM library build from https://github.com/drflei/IRBEM
+c       it has the latest IGRF14 and works up year 2030 and the Boberg extension to TS89 model for Kp > 6.
 C........+.........+.........+.........+.........+.........+.........+..
 c
       IMPLICIT INTEGER (I-N)
@@ -15,7 +15,7 @@ c
       IMPLICIT REAL*8 (O-Z)
 
       INTEGER*4    options(5), year, kp, iut
-      real*8       maginput(25,1), lm(1,1), lstar(1,1)
+      real*8       maginput(25,1), lm(1,1), lstar(1,1), blocal(1,1), bmin(1,1), xj(1,1), mlt(1,1)
 c
       real*8 rlat(37,73), rlon(37,73), rc(37,73,3)
 
@@ -40,8 +40,11 @@ c      INTEGER :: i
       filein = TRIM(arg)
 c
 C     CALL make lstar1 once as initialisation. This is needed for kp=9 due to a possible bug in irbem.
+      maginput = -1.0D31
       maginput(1,1) = 10.D0
-      call make_lstar1(1,4,options,0,2000,1,0.D0,450.D0,
+c      kext = 4
+      kext = 15
+      call make_lstar1(1,kext,options,0,2000,1,0.D0,450.D0,
      *      0.D0,0.D0,maginput,lm,lstar,blocal,bmin,xj,mlt)
 c
 c
@@ -74,7 +77,7 @@ c
       open(2,file=fileout,status='unknown')
       do i = 1, 37
          do j = 1,73
-            call make_lstar1(1,4,options,0,year,1,ut,450.D0,
+            call make_lstar1(1,kext,options,0,year,1,ut,450.D0,
      *      rlat(i,j),rlon(i,j),maginput,lm,lstar,blocal,bmin,xj,mlt)
             FL = DABS(lm(1,1))
             if (FL .gt. 100.D0) FL=99.99D0

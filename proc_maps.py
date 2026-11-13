@@ -2,9 +2,9 @@ import os
 import shutil
 import subprocess
 
-os.chdir('/home/flei/onedrive/magcos-runs/rigidity/450')
-#dirs = ('2030','2025','2020','2015','2010','2005','2000','1995','1990','1985','1980','1975','1970','1965','1960','1955')
-dirs = ('2020',)
+os.chdir('/home/flei/magcos-runs/rigidity/450')
+dirs = ('2030','2025','2020','2015','2010','2005','2000','1995','1990','1985','1980','1975','1970','1965','1960','1955')
+#dirs = ('2020',)
 def preprocfile(file):
     # Preprocess the file to prepare it for mapping, i.e., replace Null values with 0 or the average of the values before and after in the column.
     with open(file, 'r') as f:
@@ -40,6 +40,6 @@ for dir in dirs:
             cmd = f"/home/flei/MSM_maps/premap {year} {kp} {ut:0>2} {file}"
             outfile = f"AVKP{kp}T{ut:0>2}.AVG"
             subprocess.run(cmd, shell=True)
-            shutil.move(f"/home/flei/onedrive/magcos-runs/rigidity/450/{outfile}",f"/home/flei/MSM_maps/{year}/{outfile}")
+            shutil.move(f"/home/flei/magcos-runs/rigidity/450/{outfile}",f"/home/flei/MSM_maps/{year}/{outfile}")
             #plotmapfile(file)
 os.chdir('/home/flei/MSM_maps')
