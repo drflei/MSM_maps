@@ -5,8 +5,7 @@ c
 c     compilation:
 c       $ gfortran premap.for -o premap -L../IRBEM/bin -lirbem -std=legacy -no-pie -fno-automatic -O3
 c
-c       Note:   the irbem lib is the IRBEM library build from https://github.com/drflei/IRBEM
-c       it has the latest IGRF14 and works up year 2030 and the Boberg extension to TS89 model for Kp > 6.
+c       Note:   the irbem lib is the IRBEM library build from https://github.com/PRBEM/IRBEM
 C........+.........+.........+.........+.........+.........+.........+..
 c
       IMPLICIT INTEGER (I-N)
